@@ -38,6 +38,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   transparent_image: ^2.0.1
   get: ^4.6.6
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
