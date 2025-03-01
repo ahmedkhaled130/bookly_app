@@ -11,24 +11,30 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomAppBar(),
           FeaturedBooksListView(),
-          SizedBox(height: 50,),
-          Text("Best Seller",style: Styles.textStyle18?.copyWith(
-            fontFamily: kGtSectraFine
-          ),),
+          SizedBox(
+            height: 50,
+          ),
+          Text(
+            "Best Seller",
+            style: Styles.textStyle18?.copyWith(fontFamily: kGtSectraFine),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           BestSellerListViewItem()
         ],
       ),
     );
   }
-  
 }
+
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
 
@@ -38,19 +44,23 @@ class BestSellerListViewItem extends StatelessWidget {
       height: 125,
       child: Row(
         children: [
-          AspectRatio(aspectRatio: 2.5/4,
+          AspectRatio(
+            aspectRatio: 2.5 / 4,
             child: Container(
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
-                  image: DecorationImage(fit: BoxFit.cover,image:AssetImage(AssetsData.testImgae) )
-              ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(AssetsData.testImgae))),
             ),
-          )      ],
+          ),
+          SizedBox(width: 18,),
+            Column(
+            children: [SizedBox(width:MediaQuery.of(context).size.width*0.5
+               ,child: Text("Harry Potter and the Goblet of Fire",style: Styles.textStyle20,maxLines: 2,overflow: TextOverflow.ellipsis,))],
+          )
+        ],
       ),
     );
   }
 }
-
-
-
-
