@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Best Seller",
                 style: Styles.textStyle18?.copyWith(fontFamily: kGtSectraFine),
@@ -38,7 +38,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         const SliverToBoxAdapter(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 30),
+            padding:  EdgeInsets.symmetric(horizontal: 20),
             child: BestSellerListView(),
           ),
         )
