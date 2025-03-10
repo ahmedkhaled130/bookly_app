@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -19,15 +20,15 @@ class BookDetailsViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: width * .22),
             child: const CustomBookImage(),
           ),
-          SizedBox(
+          const SizedBox(
             height: 43,
           ),
-          Text(
+          const Text(
             "A Little Life",
             style: Styles.textStyle30,
           ),
-          SizedBox(
-            height: 6,
+          const SizedBox(
+            height: 3,
           ),
           Opacity(
             opacity: .70,
@@ -36,7 +37,14 @@ class BookDetailsViewBody extends StatelessWidget {
               style: Styles.textStyle18.copyWith(
                   fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
-          )
+          ),
+          const SizedBox(height: 12,),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BookRating(),
+            ],
+          ),
         ],
       ),
     );
