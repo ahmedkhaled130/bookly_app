@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
@@ -12,6 +13,9 @@ class CustomSearchTextField extends StatelessWidget {
           enabledBorder: buildOutlineInputBorder(),
           focusedBorder: buildOutlineInputBorder(),
           hintText: "Search",
+          prefixIcon: IconButton(onPressed: () {
+            GoRouter.of(context).push("/homeView");
+          }, icon: const Icon(Icons.close)),
           suffixIcon: IconButton(onPressed: () {
 
           }, icon: const Opacity(opacity:.9 ,
