@@ -3,6 +3,7 @@ import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 
+import 'books_action.dart';
 import 'custom_book_details_app_bar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -35,18 +36,26 @@ class BookDetailsViewBody extends StatelessWidget {
             child: Text(
               "Hanya Yanagih",
               style: Styles.textStyle18.copyWith(
-                  fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+                  fontStyle: FontStyle.italic, fontWeight: FontWeight.w500,fontFamily: "kGtSectraFine"),
             ),
           ),
-          const SizedBox(height: 12,),
+          const SizedBox(
+            height: 12,
+          ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BookRating(),
             ],
           ),
+          const SizedBox(height:37 ,),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: BooksAction(),
+          ),
         ],
       ),
     );
   }
 }
+
