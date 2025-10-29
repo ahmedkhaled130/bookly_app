@@ -165,50 +165,89 @@ class Epub {
 
 class SaleInfo {
   SaleInfo({
-      this.country, 
-      this.saleability, 
-      this.isEbook,});
+    this.country,
+    this.saleability,
+    this.isEbook,
+    this.listPrice,
+    this.retailPrice,
+    this.buyLink,
+  });
 
   SaleInfo.fromJson(dynamic json) {
     country = json['country'];
     saleability = json['saleability'];
     isEbook = json['isEbook'];
+    listPrice = json['listPrice'] != null ? Price.fromJson(json['listPrice']) : null;
+    retailPrice = json['retailPrice'] != null ? Price.fromJson(json['retailPrice']) : null;
+    buyLink = json['buyLink'];
   }
+
   String? country;
   String? saleability;
   bool? isEbook;
+  Price? listPrice;
+  Price? retailPrice;
+  String? buyLink;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['country'] = country;
     map['saleability'] = saleability;
     map['isEbook'] = isEbook;
+    if (listPrice != null) map['listPrice'] = listPrice!.toJson();
+    if (retailPrice != null) map['retailPrice'] = retailPrice!.toJson();
+    map['buyLink'] = buyLink;
     return map;
   }
-
 }
+
+class Price {
+  Price({
+    this.amount,
+    this.currencyCode,
+  });
+
+  Price.fromJson(dynamic json) {
+    amount = json['amount'];
+    currencyCode = json['currencyCode'];
+  }
+  num? amount;
+
+  String? currencyCode;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['amount'] = amount;
+    map['currencyCode'] = currencyCode;
+    return map;
+  }
+}
+
 
 class VolumeInfo {
   VolumeInfo({
-      this.title, 
-      this.authors, 
-      this.publisher, 
-      this.publishedDate, 
-      this.description, 
-      this.industryIdentifiers, 
-      this.readingModes, 
-      this.pageCount, 
-      this.printType, 
-      this.categories, 
-      this.maturityRating, 
-      this.allowAnonLogging, 
-      this.contentVersion, 
-      this.panelizationSummary, 
-      this.imageLinks, 
-      this.language, 
-      this.previewLink, 
-      this.infoLink, 
-      this.canonicalVolumeLink,});
+    this.title,
+    this.authors,
+    this.publisher,
+    this.publishedDate,
+    this.description,
+    this.industryIdentifiers,
+    this.readingModes,
+    this.pageCount,
+    this.printType,
+    this.categories,
+    this.maturityRating,
+    this.allowAnonLogging,
+    this.contentVersion,
+    this.panelizationSummary,
+    this.imageLinks,
+    this.language,
+    this.previewLink,
+    this.infoLink,
+    this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingsCount,
+  });
 
   VolumeInfo.fromJson(dynamic json) {
     title = json['title'];
@@ -235,7 +274,14 @@ class VolumeInfo {
     previewLink = json['previewLink'];
     infoLink = json['infoLink'];
     canonicalVolumeLink = json['canonicalVolumeLink'];
+
+    // ✅ أضف دول
+    averageRating = (json['averageRating'] != null)
+        ? (json['averageRating'] as num).toDouble()
+        : 0.0;
+    ratingsCount = json['ratingsCount'] ?? 0;
   }
+
   String? title;
   List<String>? authors;
   String? publisher;
@@ -255,6 +301,10 @@ class VolumeInfo {
   String? previewLink;
   String? infoLink;
   String? canonicalVolumeLink;
+
+  // ✅ أضف دول
+  double? averageRating;
+  int? ratingsCount;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -285,9 +335,13 @@ class VolumeInfo {
     map['previewLink'] = previewLink;
     map['infoLink'] = infoLink;
     map['canonicalVolumeLink'] = canonicalVolumeLink;
+
+    // ✅ أضف دول
+    map['averageRating'] = averageRating;
+    map['ratingsCount'] = ratingsCount;
+
     return map;
   }
-
 }
 
 class ImageLinks {

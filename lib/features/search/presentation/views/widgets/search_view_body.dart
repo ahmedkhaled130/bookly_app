@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../home/data/models/books_model.dart';
 import '../../../../home/presentation/views/widgets/book_list_view_item.dart';
 import 'custom_search_text_field.dart';
 
@@ -43,9 +44,9 @@ class SearchResultListView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: BookListViewItem(),
+        return  Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: BookListViewItem(booksModel: BooksModel(),),
         );
       },
     );

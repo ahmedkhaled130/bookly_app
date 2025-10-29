@@ -13,16 +13,17 @@ class BestSellerListView extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksSuccess) {
+
           return ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemCount: 10,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
-              return const Padding(
+              return  Padding(
 
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: BookListViewItem(),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BookListViewItem(booksModel: state.books[index],),
               );
             },
           );

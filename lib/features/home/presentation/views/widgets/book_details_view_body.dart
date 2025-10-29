@@ -6,8 +6,7 @@ import 'book_details_section.dart';
 import 'books_action.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key,  });
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +17,7 @@ class BookDetailsViewBody extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
-                 BookDetailsSection(),
+                  const BookDetailsSection(),
                 const SizedBox(
                   height: 37,
                 ),
